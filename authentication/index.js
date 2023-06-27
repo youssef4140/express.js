@@ -36,4 +36,5 @@ app.delete('/category', authenticateToken, (req,res)=>DELETEcat(req,res,categori
 
 
 
-app.listen(8080, ()=> console.log(users))
+app.listen(8080, ()=> {console.log(users)
+    console.log("server running on http://localhost:8080")})
