@@ -48,10 +48,10 @@ export const authenticateToken=(req,res,next)=> {
 }
 
 
-export const get = (req, res,products)=>{
+export const getpro = (req, res,products)=>{
     const productId = req.query.id 
     if (productId){
-        const product = products.find(p => p.categoryId === parseInt(productId));
+        const product = products.find(p => p.productId === parseInt(productId));
         if(product){
             res.send(product)
         } else {
@@ -59,6 +59,20 @@ export const get = (req, res,products)=>{
         }
     }else{
         res.send(products)
+    }
+}
+
+export const getcat = (req, res,categories)=>{
+    const categoryId = req.query.id 
+    if (categoryId){
+        const category = categories.find(p => p.categoryId === parseInt(categoryId));
+        if(category){
+            res.send(category)
+        } else {
+            res.status(404).send('Product not found')
+        }
+    }else{
+        res.send(categories)
     }
 }
 

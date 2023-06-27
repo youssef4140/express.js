@@ -1,8 +1,8 @@
 export const bodyschema = 
     {
-        "name": "string",
-        "price": "number",
-        "category_id": "number"
+        "email": "must be a valid email",
+        "password": "must be 8 characters with at least 1 capital and 1 small and 1 special character",
+        "passwordrepeat": "must equal password"
     };
 
 export const validateProduct=(req,res,categories)=>{

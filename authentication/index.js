@@ -1,5 +1,5 @@
 import express from 'express'
-import { registeration , login, get, authenticateToken , addCategory, updateCategory, DELETEcat,DELETEpro, addProduct, updateProduct} from './controllers/indexcontroller.js'
+import { registeration , login, getpro, getcat, authenticateToken , addCategory, updateCategory, DELETEcat,DELETEpro, addProduct, updateProduct} from './controllers/indexcontroller.js'
 import { users, products, categories } from './models/model.js'
 
 
@@ -13,7 +13,7 @@ app.post('/register',(req,res)=> registeration(req,res,users))
 
 app.post('/login',(req,res)=>login(req,res,users))
 
-app.get('/products', authenticateToken, (req,res)=>get(req,res,products))
+app.get('/products', authenticateToken, (req,res)=>getpro(req,res,products))
 
 app.delete('/products', authenticateToken, (req,res)=>DELETEpro(req,res,products))
 
@@ -27,7 +27,7 @@ app.post('/category', authenticateToken,(req,res)=>addCategory(req,res,categorie
 
 app.put('/category', authenticateToken,(req,res)=>updateCategory(req,res,categories))
 
-app.get('/category', authenticateToken, (req,res)=>get(req,res,categories))
+app.get('/category', authenticateToken, (req,res)=>getcat(req,res,categories))
 
 app.delete('/category', authenticateToken, (req,res)=>DELETEcat(req,res,categories))
 
